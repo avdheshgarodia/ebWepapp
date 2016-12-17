@@ -1,3 +1,10 @@
+#public
+public/
+
+#sass
+.sass-cache
+sass/lib/
+
 # Logs
 logs
 *.log
