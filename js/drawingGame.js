@@ -1,5 +1,5 @@
 var canvas;
-var socket = io('http://www.avdheshgarodia.com');
+var socket = io(location.href);
 
 
 function setup() {

@@ -22,7 +22,7 @@ var server = app.listen(port, function () {
 var socket = require('socket.io');
 var io = socket(server);
 
-io.sockets.on('connection', newConnection)
+io.of('/drawing.html').on('connection', newConnection)
 
 
 function newConnection(socket) {
@@ -31,6 +31,7 @@ function newConnection(socket) {
     socket.on('mouse', mouseMsg)
     
     function mouseMsg(data) {
+        console.log('rec' + data);
         socket.broadcast.emit('mouse', data);
         // io.sockets.emit --- emit to everyone
     }
