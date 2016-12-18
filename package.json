@@ -4,13 +4,12 @@
   "private": true,
   "dependencies": {
     "express": "^4.14.0",
-    "jade": "^1.11.0"
+    "socket.io": "^1.7.2"
   },
   "scripts": {
-    "start": "grunt"
+    "start": "npm app.js"
   },
   "devDependencies": {
-    "aws-sdk": "^2.7.15",
     "grunt": "^1.0.1",
     "grunt-contrib-compass": "^1.1.1",
     "grunt-contrib-copy": "^1.0.0",
@@ -19,6 +18,5 @@
     "grunt-contrib-watch": "^1.0.0",
     "grunt-express-server": "^0.5.3",
     "grunt-sass": "^2.0.0",
-    "socket.io": "^1.4.8"
   }
 }
