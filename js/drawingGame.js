@@ -1,5 +1,5 @@
 var canvas;
-var socket = io('http://www.avdheshgarodia.com', { path: '/myapp/socket.io'});
+var socket = io('http://www.avdheshgarodia.com');
 
 
 function setup() {

@@ -20,8 +20,7 @@ var server = app.listen(port, function () {
 });
 
 var socket = require('socket.io');
-var io  = require('socket.io')(server, { path: '/myapp/socket.io'});
-
+var io = socket(server);
 
 io.sockets.on('connection', newConnection)
 
