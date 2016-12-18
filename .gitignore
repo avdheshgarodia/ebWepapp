@@ -4,6 +4,13 @@ public/
 #sass
 .sass-cache
 sass/lib/
+sass/materialize
+sass/components
+
+#js
+js/materialize
+js/p5
+
 
 # Dependency directories
 node_modules
