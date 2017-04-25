@@ -14,6 +14,7 @@ js/p5
 
 # Dependency directories
 node_modules
+npm-debug.log
 
 # OS generated files #
 ######################
