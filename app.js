@@ -96,7 +96,6 @@ function newludoPlayer(socket) {
                 var tempPlayer = {};
                 tempPlayer.colorIndex = i;
                 tempPlayer.piecesInStart = 4;
-                tempPlayer.piecesInHome = 0;
                 tempPlayer.piecesInEnd = 0;
                 tempPlayer.piecesInPlay = 0;
                 tempPlayer.pieceLocations = [];
@@ -163,25 +162,12 @@ function player(id, color) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 function newConnection(socket) {
     console.log('New Connection: ' + socket.id)
     
     socket.on('mouse', mouseMsg)
     
     function mouseMsg(data) {
-        console.log('rec' + data);
         socket.broadcast.emit('mouse', data);
         // io.sockets.emit --- emit to everyone
     }

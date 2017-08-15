@@ -7,7 +7,7 @@ var CELL_WIDTH = BOARD_WIDTH / NUM_CELLS
 var STORKE_WIDTH = 2;
 var WIDTH = BOARD_WIDTH + ((NUM_CELLS + 1) * STORKE_WIDTH);
 var TOTAL_CELL_WIDTH = CELL_WIDTH + STORKE_WIDTH;
-var POSITIONS = 52;
+var TOTAL_NUM_CELLS = 52;
 
 //COLORS
 var GAME_COLORS = ['Green', 'Yellow', 'Blue', 'Red'];
@@ -31,25 +31,30 @@ var selectedX = -1;
 var selectedY = -1;
 var selectedHome = false;
 
+var board = [];
+
 
 function setup() {
     
     for (i = 0; i < 4; i++) {
-        var tempPlayer = {};
-        tempPlayer.colorIndex = i;
-        tempPlayer.piecesInStart = 4;
-        tempPlayer.piecesInHome = 0;
-        tempPlayer.piecesInEnd = 0;
-        tempPlayer.piecesInPlay = 0;
-        tempPlayer.pieceLocations = [];
-        tempPlayer.endLocations = [];
-        tempPlayer.hasKilled = false;
-        currentBoard.push(tempPlayer);
+        var player = {};
+        
+        player.colorIndex        = i;
+        player.piecesInStart     = 4;
+        player.piecesInEnd       = 0;
+        player.piecesInPlay      = 0;
+        player.pieceLocations    = [];
+        player.endLocations      = [];
+        player.hasKilled = false;
+        
+        currentBoard.push(p);
     }
+    
 
-
+    
+    buildBoard();
     buildmap();
-    console.log('Intitial Board Setup');
+    
     //COLORS
     BOARD = color(240, 240, 240);
     WHITE = color(255, 255, 255);
@@ -420,6 +425,21 @@ function drawPiece(x, y, color) {
     fill(color);
     ellipse((x * CELL_WIDTH) + ((x + 1) * STORKE_WIDTH) + CELL_WIDTH / 2, (y * CELL_WIDTH) + ((y + 1) * STORKE_WIDTH) + CELL_WIDTH / 2,
         CELL_WIDTH - (STORKE_WIDTH * 4));
+}
+
+function buildBoard(){
+    
+    for(i = 0; i < TOTAL_NUM_CELLS; i++){
+        var cell = {}
+        cell.players = [0,0,0,0];
+        board.push(cell);
+    }
+    
+    for(i = 0; i < 4; i++) {
+        for(j = 0; j < currentBoard[i].pieceLocations.length; j++){
+            board[currentBoard[i].pieceLocations[j]].players[i] ++;
+        }
+    }
 }
 
 function buildmap() {
